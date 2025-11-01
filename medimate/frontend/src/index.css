@@ -1,0 +1,61 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.45;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #f6f7f9; /* bright text for contrast */
+  background-color: #050507; /* near-black base */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 600;
+  color: #ff4d6d; /* match accent */
+  text-decoration: none;
+}
+a:hover {
+  color: #ff7b95;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.05;
+  color: #fff;
+}
+
+button {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.1em;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+button:hover {
+  transform: translateY(-1px);
+}
+button:focus,
+button:focus-visible {
+  outline: 3px solid rgba(255,77,109,0.16);
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: light) { /* keep it dark by default; if user prefers light, soften */
+  :root {
+    color-scheme: light;
+  }
+}

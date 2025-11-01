@@ -1,0 +1,39 @@
+.siteHeader{
+  width:100%;
+  padding:12px 20px;
+  box-sizing:border-box;
+}
+.topRow{
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{
+  font-size:28px; font-weight:900; letter-spacing:0.12em; line-height:1;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-transform:uppercase;
+}
+.divider{ height:1px; margin:12px 0; background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04)); border-radius:1px }
+.centerNav{ display:flex; justify-content:center }
+.navLinks{ display:flex; gap:20px; align-items:center }
+.navLink{ color: rgba(255,255,255,0.92); text-decoration:none; font-weight:600; padding:6px 4px; border-radius:6px; transition: background var(--transition-fast), transform var(--transition-fast), color var(--transition-fast) }
+.navLink:hover{ background: rgba(255,255,255,0.02); transform: translateY(-2px) }
+.navLink:focus{ outline: 2px solid rgba(125,249,255,0.12); outline-offset:4px }
+.active{ box-shadow: inset 0 -2px 0 var(--accent-2); color: #fff }
+.logoutBtn{
+  padding:8px 12px; border-radius:10px; font-weight:700; cursor:pointer;
+  background: linear-gradient(90deg, rgba(125,249,255,0.06), rgba(183,107,255,0.06));
+  color: #eaffff; border: 1px solid rgba(255,80,80,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25), 0 0 15px rgba(255,80,80,0.1);
+  transition: all 0.3s ease;
+}
+.logoutBtn:hover{ 
+  transform: translateY(-3px); 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.32), 0 0 25px rgba(255,0,0,0.3);
+  border-color: rgba(255,0,0,0.6);
+}
+
+
+@media (max-width:600px){
+  .navLinks{ gap:12px; font-size:14px }
+  .brand{ font-size:20px }
+}

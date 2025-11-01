@@ -1,0 +1,38 @@
+:root {
+  /* Primary Colors - Vibrant medical theme */
+  --primary-500: #0066FF;    /* Vibrant blue - main CTA */
+  --primary-600: #0052CC;    /* Darker blue - hover */
+  --primary-100: #E5F0FF;    /* Light blue - backgrounds */
+  
+  /* Accent Colors - Eye-catching elements */
+  --accent-500: #FF3366;     /* Hot pink - urgent CTAs */
+  --accent-600: #E60045;     /* Darker pink - hover */
+  --accent-100: #FFE5EC;     /* Light pink - highlights */
+  
+  /* Success Colors - Medical positive actions */
+  --success-500: #00CC88;    /* Bright green - confirmations */
+  --success-600: #00B377;    /* Darker green - hover */
+  --success-100: #E5FFF5;    /* Light green - success bg */
+  
+  /* Warning/Attention Colors */
+  --warning-500: #FFB800;    /* Bright yellow - notifications */
+  --warning-100: #FFF8E5;    /* Light yellow - warning bg */
+  
+  /* Neutral Colors */
+  --neutral-900: #1A1A1A;    /* Text */
+  --neutral-700: #4D4D4D;    /* Secondary text */
+  --neutral-300: #E0E0E0;    /* Borders */
+  --neutral-200: #F5F5F5;    /* Background */
+  --neutral-100: #FFFFFF;    /* White */
+  
+  /* Interactive Elements */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Animations */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --scale-hover: scale(1.05);
+  --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
