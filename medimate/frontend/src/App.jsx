@@ -6,6 +6,8 @@ import './styles/layout.css';
 
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
+import LandingPage from './pages/LandingPage.jsx';
+import SQLQueries from './pages/SQLQueries.jsx';
 import Posts from './components/Posts.jsx';
 import Appointments from './components/Appointments.jsx';
 import Chat from './components/Chat.jsx';
@@ -78,10 +80,11 @@ function App() {
         }
       />
 
-      {/* Redirect root "/" to "/login" */}
-      <Route path="/" element={<Navigate to="/login" />} />
+      {/* Landing page (choose Login/Register or Execute Queries) */}
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/sql-queries" element={<SQLQueries />} />
       {/* Optional: catch-all unknown routes */}
-      <Route path="*" element={<Navigate to="/login" />} />
+      <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </ToastProvider>
   );

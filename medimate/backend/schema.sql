@@ -68,6 +68,80 @@ CREATE TABLE ratings_feedback (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
+
+-- Insert sample data for testing
+INSERT INTO users (name, email, password, role, is_verified) VALUES
+('Dr. Sarah Smith', 'sarah.smith@medimate.com', '$2b$10$abcdefghijklmnopqrstuvwxyz', 'doctor', TRUE),
+('Dr. John Doe', 'john.doe@medimate.com', '$2b$10$abcdefghijklmnopqrstuvwxyz', 'doctor', TRUE),
+('Alice Johnson', 'alice.j@email.com', '$2b$10$abcdefghijklmnopqrstuvwxyz', 'patient', TRUE),
+('Bob Williams', 'bob.w@email.com', '$2b$10$abcdefghijklmnopqrstuvwxyz', 'patient', TRUE);
+
+
+
+--fuction to update avg_rating in users table after insert or update in ratings_feedback
+CREATE OR REPLACE FUNCTION update_doctor_avg_rating()
+RETURNS TRIGGER AS $$
+BEGIN
+  UPDATE users
+  SET avg_rating = (
+    SELECT AVG(rating)
+    FROM ratings_feedback
+    WHERE doctor_id = NEW.doctor_id
+  )
+  WHERE user_id = NEW.doctor_id;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Trigger to call the function after insert or update in ratings_feedback
+INSERT INTO ratings_feedback (patient_id, doctor_id, rating)
+VALUES (1, 5, 4);
+
+SELECT user_id, name, avg_rating FROM users WHERE user_id = 5;
+
+-- Create a view to get post details along with user information
+CREATE VIEW post_details AS
+SELECT 
+  p.post_id,
+  p.title,
+  p.description,
+  p.category,
+  p.created_at AS post_date,
+  u.user_id,
+  u.name AS posted_by,
+  u.role
+FROM posts p
+JOIN users u ON p.user_id = u.user_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- Create indexes for better query performance
 CREATE INDEX idx_posts_user_id ON posts(user_id);
 CREATE INDEX idx_comments_post_id ON comments(post_id);
@@ -76,10 +150,3 @@ CREATE INDEX idx_appointments_doctor_id ON appointments(doctor_id);
 CREATE INDEX idx_chats_sender_id ON chats(sender_id);
 CREATE INDEX idx_chats_receiver_id ON chats(receiver_id);
 CREATE INDEX idx_ratings_doctor_id ON ratings_feedback(doctor_id);
-
--- Insert sample data for testing
-INSERT INTO users (name, email, password, role, is_verified) VALUES
-('Dr. Sarah Smith', 'sarah.smith@medimate.com', '$2b$10$abcdefghijklmnopqrstuvwxyz', 'doctor', TRUE),
-('Dr. John Doe', 'john.doe@medimate.com', '$2b$10$abcdefghijklmnopqrstuvwxyz', 'doctor', TRUE),
-('Alice Johnson', 'alice.j@email.com', '$2b$10$abcdefghijklmnopqrstuvwxyz', 'patient', TRUE),
-('Bob Williams', 'bob.w@email.com', '$2b$10$abcdefghijklmnopqrstuvwxyz', 'patient', TRUE);

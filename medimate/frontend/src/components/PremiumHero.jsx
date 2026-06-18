@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const FloatingViz = () => {
   // subtle 3D parallax using framer motion transforms
@@ -25,6 +26,7 @@ const FloatingViz = () => {
 }
 
 export default function PremiumHero(){
+  const navigate = useNavigate();
   return (
     <section className="premium-hero-root">
       <div className="morph-bg" aria-hidden />
@@ -38,8 +40,8 @@ export default function PremiumHero(){
           <p className="hero-sub">A premium interface that blends clarity with cinematic visuals. Micro-interactions, glass surfaces, and morphing gradients give every action a gentle, tactile feeling.</p>
 
           <div className="cta-row">
-            <button className="btn-primary" aria-label="Get started">Get started</button>
-            <button className="btn-ghost" aria-label="Learn more">Learn more</button>
+            <button className="btn-primary" aria-label="Get started" onClick={() => navigate('/login')}>Get started</button>
+            <button className="btn-ghost" aria-label="Execute Queries" onClick={() => navigate('/sql-queries')}>Execute Queries</button>
           </div>
 
           <div className="micro">No sign-up required • Explore the demo • Built for modern devices</div>
