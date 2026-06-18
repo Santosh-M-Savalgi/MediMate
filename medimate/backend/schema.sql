@@ -79,6 +79,7 @@ INSERT INTO users (name, email, password, role, is_verified) VALUES
 
 
 
+/*
 --fuction to update avg_rating in users table after insert or update in ratings_feedback
 CREATE OR REPLACE FUNCTION update_doctor_avg_rating()
 RETURNS TRIGGER AS $$
@@ -100,6 +101,7 @@ INSERT INTO ratings_feedback (patient_id, doctor_id, rating)
 VALUES (1, 5, 4);
 
 SELECT user_id, name, avg_rating FROM users WHERE user_id = 5;
+*/
 
 -- Create a view to get post details along with user information
 CREATE VIEW post_details AS
